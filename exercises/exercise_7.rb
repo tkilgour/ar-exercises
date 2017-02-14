@@ -13,4 +13,9 @@ puts "----------"
 puts "Please enter a store name:"
 print ">"
 @store_name = gets.chomp
-Store.create!(name: @store_name)
+@new_store = Store.create(name: @store_name)
+
+@new_store.errors.to_a.each do |error|
+  puts "ERROR: #{error}"
+end
+
